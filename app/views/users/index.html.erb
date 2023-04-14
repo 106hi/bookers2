@@ -1,1 +1,35 @@
-<h1>Users</h1>
+<h3>User info</h3>
+
+<p>name</p>
+<p>introduction</p>
+
+<h3>New book</h3>
+  <%= form_with model: @book do |f| %>
+    <p>Title</p>
+      <%= f.text_field :title %>
+    <p>Opinion</p>
+      <%= f.text_area :body %>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
+<h3>Users</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td>画像</td>
+      <td>名前</td>
+      <td>show</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
