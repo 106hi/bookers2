@@ -1,7 +1,10 @@
 <h3>User info</h3>
-
+<%= @user.each do |f| %>
 <p>name</p>
+<%= f.text_field :name %>
 <p>introduction</p>
+<%= f.text_area :introduction %>
+<% end %>
 
 <h3>New book</h3>
   <%= form_with model: @book do |f| %>
@@ -19,7 +22,7 @@
     <tr>
       <th>image</th>
       <th>name</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 

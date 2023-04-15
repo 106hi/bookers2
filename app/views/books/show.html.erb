@@ -7,7 +7,7 @@
       <td>画像<br>名前</td>
       <td><%= book.title %></td>
       <td><%= book.body %></td>
-      <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+      <td><%= link_to "Edit", edit_book_path, class: 'btn btn-default' %></td>
       <td>Destroy</td>
     </tr>
     <% end %>
