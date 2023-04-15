@@ -1,7 +1,13 @@
 <h3>User info</h3>
-
-<p>name</p>
-<p>introduction</p>
+<% @books.each do |book| %>
+  <% if book.image.attached? %>
+    <%= image_tag book.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+  <p>name</p>
+  <p>introduction</p>
+<% end %>
 
 <h3>New book</h3>
   <%= form_with model: @book do |f| %>

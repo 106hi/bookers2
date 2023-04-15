@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = User.new(user_params)
+    @user = User.new
   end
 
   def show
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
     @book.save
     redirect_to book_path(@book)
   end
@@ -26,7 +27,11 @@ class UsersController < ApplicationController
   end
 
   private
+  def book_params
+    params.require(:book).permit(:title,:body)
+  end
+
   def user_params
-    params.require(:user).permit(:title,:body,:name,:inrtoduction)
+    params.require(:user).permit(:name,:inrtoduction)
   end
 end
