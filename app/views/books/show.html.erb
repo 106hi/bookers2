@@ -2,14 +2,12 @@
 
 <table>
   <tbody>
-    <% @books.each do |book| %>
       <tr>
-      <td>画像<br>名前</td>
-      <td><%= book.title %></td>
-      <td><%= book.body %></td>
+      <td><%= image_tag @book.user.get_profile_image(50,50) %><br><%= @book.user.name %></td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
       <td><%= link_to "Edit", edit_book_path, class: 'btn btn-default' %></td>
       <td>Destroy</td>
-    </tr>
-    <% end %>
+      </tr>
   </tbody>
 </table>
