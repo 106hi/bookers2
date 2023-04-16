@@ -12,9 +12,9 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <td>画像</td>
-      <td>名前</td>
-      <td>show</td>
+      <td><%= image_tag user.get_profile_image(100,100) %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "show", user_path(user.id) %></td>
     </tr>
     <% end %>
   </tbody>

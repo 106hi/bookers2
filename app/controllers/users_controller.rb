@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.new(user_params)
+    @user = User.find(params[:id])
+    @book = @user.books
   end
 
   def create
@@ -28,6 +29,10 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :inrtoduction, :profile_image)
+    params.require(:user).permit(:name, :inrtoduction, :profile_image,)
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :body)
   end
 end

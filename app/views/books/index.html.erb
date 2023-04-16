@@ -1,15 +1,10 @@
 <h3>User info</h3>
-<% @books.each do |user| %>
-  <% if user.image.attached? %>
-    <%= image_tag current_user.image, size: "100x100" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "100x100" %>
-  <% end %>
+  <%= image_tag current_user.get_profile_image(100,100) %>
+
   <p>name</p>
   <%= current_user.name %>
   <p>introduction</p>
 
-<% end %>
 
 <h3>New book</h3>
   <%= form_with model: @book do |f| %>
@@ -34,7 +29,7 @@
   <tbody>
     <% @books.each do |book| %>
     <tr>
-      <td>画像</td>
+      <td><%= image_tag book.user.get_profile_image(100,100) %></td>
       <td><%= book.title %></td>
       <td><%= book.body %></td>
     </tr>
