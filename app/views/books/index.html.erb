@@ -1,12 +1,14 @@
 <h3>User info</h3>
-<% @books.each do |book| %>
-  <% if book.image.attached? %>
-    <%= image_tag book.image, size: "200x200" %>
+<% @books.each do |user| %>
+  <% if user.image.attached? %>
+    <%= image_tag current_user.image, size: "100x100" %>
   <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
+    <%= image_tag 'no_image', size: "100x100" %>
   <% end %>
   <p>name</p>
+  <%= current_user.name %>
   <p>introduction</p>
+
 <% end %>
 
 <h3>New book</h3>
