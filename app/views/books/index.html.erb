@@ -5,6 +5,7 @@
   <%= current_user.name %>
   <p>introduction</p>
   <%= current_user.introduction %>
+  <%= link_to "Edit", edit_user_path(current_user.id) %>
 
 <h3>New book</h3>
   <%= form_with model: @book do |f| %>
