@@ -27,6 +27,9 @@ header{
   text-align: center;
 }
 
-a{
-  text-align: center;
+.edit-icon{
+  color: #333;
+  background: none;
+  border: 1px solid rgba(0,0,0,.2);
+  box-shadow: none;
 }

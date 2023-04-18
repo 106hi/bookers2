@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/9d9107d4e2.js" crossorigin="anonymous"></script>
     <title>Bookers2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -14,15 +15,15 @@
     <header>
       <a href="/">Bookers</a>
       <% if user_signed_in? %>
-        <li><%= link_to "Home", user_path(current_user.id) %></li>
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Books", books_path %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <a class="icon" href="/users/<%= current_user.id %>"><i class="fas fa-home"></i>Home</a>
+        <a class="icon" href="/users"><i class="fas fa-users"></i>Users</a>
+        <a class="icon" href="/books"><i class="fas fa-book-open" ></i>Books</a>
+        <a class="icon" rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fas fa-sign-out-alt"></i>Log out</a>
       <% else %>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Log in", new_user_session_path %></li>
+        <a class="icon" href="/"><i class="fas fa-home"></i>Home</a>
+        <a class="icon" href="/homes/about"><i class="fas fa-link"></i>About</a>
+        <a class="icon" href="/users/sign_up"><i class="fas fa-user-plus"></i>Sign Up</a>
+        <a class="icon" href="/users/sign_in"><i class="fas fa-sign-in-alt"></i>Log in</a>
       <% end %>
     </header>
     <%= yield %>
