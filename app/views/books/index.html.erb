@@ -7,25 +7,32 @@
   </ul>
 <% end %>
 
-<%= render 'author', book:@book %>
-
-<h1>Books</h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="1"></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @books.each do |book| %>
-    <tr>
-      <td><%= link_to (image_tag book.user.get_profile_image(100,100)), user_path(book.user.id) %></td>
-      <td><%= link_to book.title, book_path(book.id) %></td>
-      <td><%= book.body %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'author', book:@book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h3>Books</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr class="border-bottom">
+            <th></th>
+            <th class="py-2">Title</th>
+            <th class="py-2">Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+          <tr>
+            <td class="py-2"><%= link_to (image_tag book.user.get_profile_image(75,75)), user_path(book.user.id) %></td>
+            <td class="text-break py-2"><%= link_to book.title, book_path(book.id) %></td>
+            <td class="text-break py-2"><%= book.body %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
