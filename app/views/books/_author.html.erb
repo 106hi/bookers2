@@ -5,7 +5,9 @@
   <%= current_user.name %>
   <p>introduction</p>
   <%= current_user.introduction %>
-  <a class="edit-icon" href="/users/<%= current_user.id %>/edit"><i class="fas fa-user-cog"></i></a>
+  <%= link_to edit_user_path(current_user.id) do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
 
 <h3>New book</h3>
   <%= form_with model: book do |f| %>
