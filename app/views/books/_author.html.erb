@@ -1,26 +1,25 @@
 <h3>User info</h3>
-  <%= image_tag current_user.get_profile_image(100,100) %>
-  <table>
-    <tbody>
-      <tr class="border-top">
-  <th class="p-2">name</th>
-  <th class="p-2"><%= current_user.name %></th>
-  </tr>
-  <tr class="border-top">
-  <th class="p-2">introduction</th>
-  <th class="p-2"><%= current_user.introduction %></th>
-  </tr>
+  <%= image_tag book.user.get_profile_image(100,100) %>
+<table>
+  <tbody>
+    <tr class="border-top">
+      <th class="p-2">name</th>
+      <th class="p-2"><%= book.user.name %></th>
+    </tr>
+    <tr class="border-top">
+      <th class="p-2">introduction</th>
+      <th class="p-2"><%= book.user.introduction %></th>
+    </tr>
   </tbody>
-  </table>
-  <button class="btn btn-outline-secondary btn-sm w-100 mt-5 mb-2" type="button">
-  <%= link_to edit_user_path(current_user.id), class: 'nav-link text-secondary' do %>
+</table>
+<button class="btn btn-outline-secondary btn-sm w-100 mt-5 mb-2" type="button">
+  <%= link_to edit_user_path(book.user.id), class: 'nav-link text-secondary' do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
-  </button>
-
+</button>
 
 <h3>New book</h3>
-  <%= form_with model: book do |f| %>
+<%= form_with model: book do |f| %>
   <div class="form-group">
     <p class="mb-2">Title</p>
     <%= f.text_field :title, class: 'form-control' %>
@@ -32,4 +31,4 @@
   <div class="form-group">
     <button type="submit" class="btn btn-success btn-sm">Create Book</button>
   </div>
-  <% end %>
+<% end %>

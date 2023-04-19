@@ -2,26 +2,37 @@
   <%= flash[:notice] %>
 </div>
 
-<%= render 'author', book:@book %>
-
-<h1>Book detail</h1>
-<table>
-  <tbody>
-    <tr>
-      <td><%= link_to (image_tag @books.user.get_profile_image(50,50)), user_path(@books.user.id) %>
-        <br><%= link_to (@books.user.name), user_path(@books.user.id) %></td>
-      <td><%= link_to (@books.title), book_path(@books.id) %></td>
-      <td><%= @books.body %></td>
-      <td>
-        <% if @books.user == current_user %>
-          <%= link_to "Edit", edit_book_path, class: 'btn btn-default' %>
-        <% end %>
-      </td>
-      <td>
-        <% if @books.user == current_user %>
-          <%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-default' %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'author', book:@book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h3>Book detail</h3>
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <tr class="border-bottom">
+            <td class="py-2"><%= link_to (image_tag @books.user.get_profile_image(75,75)), user_path(@books.user.id) %><br>
+              <%= link_to (@books.user.name), user_path(@books.user.id) %></td>
+            <td class="text-break py-2"><%= link_to (@books.title), book_path(@books.id) %></td>
+            <td class="text-break py-2"><%= @books.body %></td>
+            <td>
+              <% if @books.user == current_user %>
+                <button class="btn btn-success btn-sm" type="button">
+                  <%= link_to "Edit", edit_book_path, class: 'nav-link text-light' %>
+                </button>
+              <% end %>
+            </td>
+            <td>
+              <% if @books.user == current_user %>
+                <button class="btn btn-danger btn-sm" type="button">
+                  <%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'nav-link text-light' %>
+                </button>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
