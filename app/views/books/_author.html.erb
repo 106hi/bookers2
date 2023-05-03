@@ -12,11 +12,13 @@
     </tr>
   </tbody>
 </table>
+<% if book.user.name != "guestuser" %>
 <button class="btn btn-outline-secondary btn-sm w-100 mt-5 mb-2" type="button">
   <%= link_to edit_user_path(book.user.id), class: 'nav-link text-secondary' do %>
     <i class="fas fa-user-cog"></i>
   <% end %>
 </button>
+<% end %>
 
 <h3>New book</h3>
 <%= form_with model: book do |f| %>
